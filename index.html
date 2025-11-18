@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Floor Item Designer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="control-panel">
+        <header>
+          <h1>Shop Floor Items</h1>
+          <p>Create simple 2D references for your robot maps.</p>
+        </header>
+
+        <form id="item-form" autocomplete="off">
+          <fieldset>
+            <legend>Item dimensions (cm)</legend>
+            <label>
+              Width
+              <input type="number" name="width" min="10" value="400" required />
+            </label>
+            <label>
+              Height
+              <input type="number" name="height" min="10" value="300" required />
+            </label>
+          </fieldset>
+
+          <label>
+            Nr. of stripe markers
+            <input
+              type="number"
+              name="stripeCount"
+              min="1"
+              max="6"
+              value="2"
+              required
+            />
+          </label>
+
+          <label>
+            Nr. of chessboard markers per stripe marker
+            <input
+              type="number"
+              name="chessPerStripe"
+              min="1"
+              max="6"
+              value="3"
+              required
+            />
+          </label>
+
+          <button type="submit">Create new shop floor item</button>
+        </form>
+
+        <section class="panel-hints">
+          <h2>How it works</h2>
+          <ul>
+            <li>1 pixel equals 1 centimeter.</li>
+            <li>Drag markers, they stay inside the item bounds.</li>
+            <li>
+              Zebra marker labels show their position relative to the bottom left
+              of the item.
+            </li>
+            <li>
+              Chessboard marker labels show their position relative to their
+              parent zebra marker.
+            </li>
+          </ul>
+        </section>
+      </aside>
+
+      <main class="workspace">
+        <div id="canvas" class="canvas">
+          <div class="empty-state">
+            <p>Provide details on the left, then create your first item.</p>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
