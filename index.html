@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shop Floor Item Designer</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <aside class="control-panel">
+        <header>
+          <h1>Shop Floor Item Designer</h1>
+          <p>Create frontal views of shop floor items and configure markers.</p>
+        </header>
+
+        <form id="item-form">
+          <label>
+            Item Width (cm)
+            <input
+              type="number"
+              id="item-width"
+              name="itemWidth"
+              min="40"
+              max="1200"
+              step="1"
+              required
+              value="500"
+            />
+          </label>
+
+          <label>
+            Item Height (cm)
+            <input
+              type="number"
+              id="item-height"
+              name="itemHeight"
+              min="40"
+              max="1200"
+              step="1"
+              required
+              value="300"
+            />
+          </label>
+
+          <label>
+            Nr. of Stripe Markers
+            <input
+              type="number"
+              id="stripe-count"
+              name="stripeCount"
+              min="1"
+              max="12"
+              step="1"
+              required
+              value="2"
+            />
+          </label>
+
+          <label>
+            Nr. of Chessboard Markers per Stripe Marker
+            <input
+              type="number"
+              id="chess-per-stripe"
+              name="chessPerStripe"
+              min="1"
+              max="12"
+              step="1"
+              required
+              value="3"
+            />
+          </label>
+
+          <button type="submit">Create New Shop Floor Item</button>
+        </form>
+
+        <section class="tips">
+          <h2>How it works</h2>
+          <ul>
+            <li>1 pixel equals 1 cm on the canvas.</li>
+            <li>Drag markers around; they stay inside the item.</li>
+            <li>Stripe marker positions are relative to the item bottom-left corner.</li>
+            <li>Chessboard marker positions are relative to their stripe marker.</li>
+          </ul>
+        </section>
+
+        <div id="status-message" role="status"></div>
+      </aside>
+
+      <main class="canvas-area">
+        <div id="canvas">
+          <div class="canvas-placeholder">
+            Fill in the form and click “Create New Shop Floor Item” to begin.
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="./main.js" type="module"></script>
+  </body>
+</html>
